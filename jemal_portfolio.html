@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jemal and Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#F8FAFC',
+                            100: '#F1F5F9',
+                            200: '#E2E8F0',
+                            300: '#CBD5E1',
+                            400: '#94A3B8',
+                            500: '#64748B',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1E293B',
+                            900: '#0F172A',
+                            950: '#020617',
+                        },
+                        accent: {
+                            light: '#3B82F6',
+                            DEFAULT: '#1E3A8A',
+                            dark: '#172554',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-curve {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .hero-curve svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 80px;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+        .image-placeholder {
+            background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E1 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748B;
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="font-sans text-navy-800 bg-navy-50 antialiased">
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- GANTI FOTO: Ganti src pada img di bawah ini -->
+    <!-- ============================================ -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <!-- [GANTI FOTO HERO] -->
+            <img 
+                src="Hero_jemal.png?w=1920&h=1080&fit=crop" 
+                alt="Hero Background" 
+                class="w-full h-full object-cover"
+                id="hero-image"
+            >
+            <div class="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/70 to-transparent"></div>
+        </div>
+
+        <!-- Decorative Accent Shape -->
+        <div class="absolute bottom-0 right-0 w-1/3 h-2/3">
+            <svg viewBox="0 0 200 200" class="w-full h-full opacity-20">
+                <path fill="#1E3A8A" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,79.6,-46.9C87.4,-34.7,90.1,-20.4,88.6,-6.9C87.1,6.6,81.4,19.3,73.6,30.8C65.8,42.3,55.9,52.6,44.3,60.6C32.7,68.6,19.4,74.3,5.3,76.3C-8.8,78.3,-23.7,76.6,-36.8,70.6C-49.9,64.6,-61.2,54.3,-69.6,42.1C-78,29.9,-83.5,15.8,-82.8,2.1C-82.1,-11.6,-75.2,-24.9,-66.1,-36.3C-57,-47.7,-45.7,-57.2,-33.2,-65.3C-20.7,-73.4,-7,-80.1,6.3,-79.8C19.6,-79.5,39.2,-72.2,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32">
+            <div class="max-w-2xl scroll-reveal">
+                <p class="text-accent-light font-semibold text-lg mb-4 tracking-wide uppercase">Portfolio</p>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.95] mb-8">
+                    Jemal<br>and<br>Portfolio
+                </h1>
+                <p class="text-navy-200 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+                    Setiap orang berhak untuk berkarya. Saya percaya bahwa kreativitas dan dedikasi adalah kunci untuk menciptakan solusi yang berarti dan berdampak positif bagi banyak orang.
+                </p>
+                <a href="#projects" class="inline-flex items-center gap-3 bg-accent hover:bg-accent-light text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:gap-5 group">
+                    Lihat Karya Saya
+                    <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Bottom Curve -->
+        <div class="hero-curve">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="#F8FAFC" opacity=".5"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="#F8FAFC" opacity=".75"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#F8FAFC"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- KEAHLIAN / SKILLS SECTION -->
+    <!-- ISI KEAHLIAN ANDA DI BAWAH INI -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-navy-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 scroll-reveal">
+                <p class="text-accent font-semibold text-lg mb-3 tracking-wide uppercase">Keahlian</p>
+                <h2 class="text-4xl md:text-5xl font-black text-navy-900 mb-6">Apa yang Saya Kuasai</h2>
+                <p class="text-navy-600 text-lg max-w-2xl mx-auto">
+                    Berikut adalah keahlian dan kompetensi yang saya miliki. Silakan sesuaikan dengan keahlian Anda sendiri.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- SKILL 1 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-navy-100 hover:border-accent/20 scroll-reveal">
+                    <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <!-- [ISI KEAHLIAN 1] -->
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Web Development</h3>
+                    <p class="text-navy-600 leading-relaxed">
+                        Mengembangkan website responsif dan modern menggunakan HTML, CSS, JavaScript, dan framework modern seperti React dan Tailwind CSS.
+                    </p>
+                </div>
+
+                <!-- SKILL 2 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-navy-100 hover:border-accent/20 scroll-reveal">
+                    <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                    </div>
+                    <!-- [ISI KEAHLIAN 2] -->
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">UI/UX Design</h3>
+                    <p class="text-navy-600 leading-relaxed">
+                        Mendesain antarmuka pengguna yang intuitif dan pengalaman pengguna yang menyenangkan menggunakan Figma.
+                    </p>
+                </div>
+
+                <!-- SKILL 3 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-navy-100 hover:border-accent/20 scroll-reveal">
+                    <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <!-- [ISI KEAHLIAN 3] -->
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Data Analysis</h3>
+                    <p class="text-navy-600 leading-relaxed">
+                        Menganalisis data untuk menghasilkan insight berharga menggunakan Python, SQL, dan tools visualisasi data.
+                    </p>
+                </div>
+
+                <!-- SKILL 4 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-navy-100 hover:border-accent/20 scroll-reveal">
+                    <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <!-- [ISI KEAHLIAN 4] -->
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Video Editing</h3>
+                    <p class="text-navy-600 leading-relaxed">
+                        ini kasih caption.
+                    </p>
+                </div>
+
+                <!-- SKILL 5 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-navy-100 hover:border-accent/20 scroll-reveal">
+                    <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/>
+                        </svg>
+                    </div>
+                    <!-- [ISI KEAHLIAN 5] -->
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Digital Marketing</h3>
+                    <p class="text-navy-600 leading-relaxed">
+                        Merancang strategi pemasaran digital yang efektif meliputi SEO, social media marketing, dan content marketing.
+                    </p>
+                </div>
+
+                <!-- SKILL 6 -->
+                <div class="group bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-navy-100 hover:border-accent/20 scroll-reveal">
+                    <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                        <svg class="w-7 h-7 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <!-- [ISI KEAHLIAN 6] -->
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Problem Solving</h3>
+                    <p class="text-navy-600 leading-relaxed">
+                        Mengidentifikasi masalah kompleks dan merancang solusi kreatif serta efektif dengan pendekatan analitis dan inovatif.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- STATISTICS SECTION -->
+    <!-- ============================================ -->
+    <section class="py-24 bg-navy-900 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="text-center mb-16 scroll-reveal">
+                <p class="text-accent-light font-semibold text-lg mb-3 tracking-wide uppercase">Pencapaian</p>
+                <h2 class="text-4xl md:text-5xl font-black text-white mb-6">Dalam Angka</h2>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <div class="text-center scroll-reveal">
+                    <p class="text-5xl md:text-6xl font-black text-white stat-number mb-2">30+</p>
+                    <p class="text-navy-300 text-lg">Proyek IT/Non IT Selesai</p>
+                </div>
+                <div class="text-center scroll-reveal">
+                    <p class="text-5xl md:text-6xl font-black text-white stat-number mb-2">30+</p>
+                    <p class="text-navy-300 text-lg">Klien Puas</p>
+                </div>
+                <div class="text-center scroll-reveal">
+                    <p class="text-5xl md:text-6xl font-black text-white stat-number mb-2">3</p>
+                    <p class="text-navy-300 text-lg">Tahun Pengalaman</p>
+                </div>
+                <div class="text-center scroll-reveal">
+                    <p class="text-5xl md:text-6xl font-black text-white stat-number mb-2">15+</p>
+                    <p class="text-navy-300 text-lg">Sertifikasi(nanti ganti)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROJECTS SECTION -->
+    <!-- GANTI FOTO: Ganti src pada setiap img project -->
+    <!-- ============================================ -->
+    <section id="projects" class="py-24 bg-navy-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 scroll-reveal">
+                <p class="text-accent font-semibold text-lg mb-3 tracking-wide uppercase">Portofolio</p>
+                <h2 class="text-4xl md:text-5xl font-black text-navy-900 mb-6">Proyek Terbaru</h2>
+                <p class="text-navy-600 text-lg max-w-2xl mx-auto">
+                    Berikut adalah beberapa proyek yang telah saya kerjakan. Klik untuk melihat detail lebih lanjut.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- PROJECT 1 -->
+                <div class="group cursor-pointer scroll-reveal">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <!-- [GANTI FOTO PROJECT 1] -->
+                        <img 
+                            src="buat web portofolio\WEB RT DASBOR.png" 
+                            alt="Project 1" 
+                            class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                        >
+                        <div class="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-all duration-500 flex items-center justify-center">
+                            <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent px-6 py-3 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wide">Web Development</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2 group-hover:text-accent transition-colors">Pendataan Warga</h3>
+                    <p class="text-navy-600 mt-2">Platform e-commerce modern dengan fitur pembayaran terintegrasi dan dashboard admin.</p>
+                </div>
+
+                <!-- PROJECT 2 -->
+                <div class="group cursor-pointer scroll-reveal">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <!-- [GANTI FOTO PROJECT 2] -->
+                        <img 
+                            src="buat web portofolio\Leaf less.png" 
+                            alt="Project 2" 
+                            class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                        >
+                        <div class="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-all duration-500 flex items-center justify-center">
+                            <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent px-6 py-3 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wide">UI/UX Design</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2 group-hover:text-accent transition-colors">Leaf Less App</h3>
+                    <p class="text-navy-600 mt-2">(nanti ganti).</p>
+                </div>
+
+                <!-- PROJECT 3 -->
+                <div class="group cursor-pointer scroll-reveal">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <!-- [GANTI FOTO PROJECT 3] -->
+                        <img 
+                            src="buat web portofolio\Smart Durian Ecosystem Berbasis Web.png" 
+                            alt="Project 3" 
+                            class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                        >
+                        <div class="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-all duration-500 flex items-center justify-center">
+                            <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent px-6 py-3 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wide">User Analysis</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2 group-hover:text-accent transition-colors">Smart Durian Ecosystem</h3>
+                    <p class="text-navy-600 mt-2">(nanti ganti).</p>
+                </div>
+
+                <!-- PROJECT 4 -->
+                <div class="group cursor-pointer scroll-reveal">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <!-- [GANTI FOTO PROJECT 4] -->
+                        <img 
+                            src="buat web portofolio\neural swarm.png" 
+                            alt="Project 4" 
+                            class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                        >
+                        <div class="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-all duration-500 flex items-center justify-center">
+                            <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent px-6 py-3 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wide">Simulation / Algorithmic Programming</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2 group-hover:text-accent transition-colors">Neural Swarm</h3>
+                    <p class="text-navy-600 mt-2">nanti ganti</p>
+                </div>
+
+                <!-- PROJECT 5 -->
+                <div class="group cursor-pointer scroll-reveal">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <!-- [GANTI FOTO PROJECT 5] -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop" 
+                            alt="Project 5" 
+                            class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                        >
+                        <div class="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-all duration-500 flex items-center justify-center">
+                            <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent px-6 py-3 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wide">Branding</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2 group-hover:text-accent transition-colors">Brand Identity System</h3>
+                    <p class="text-navy-600 mt-2">Pembuatan identitas brand lengkap termasuk logo, guideline, dan collateral design.</p>
+                </div>
+
+                <!-- PROJECT 6 -->
+                <div class="group cursor-pointer scroll-reveal">
+                    <div class="relative overflow-hidden rounded-2xl mb-5">
+                        <!-- [GANTI FOTO PROJECT 6] -->
+                        <img 
+                            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop" 
+                            alt="Project 6" 
+                            class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                        >
+                        <div class="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/40 transition-all duration-500 flex items-center justify-center">
+                            <span class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-accent px-6 py-3 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <span class="text-accent text-sm font-semibold uppercase tracking-wide">Full Stack</span>
+                    <h3 class="text-xl font-bold text-navy-900 mt-2 group-hover:text-accent transition-colors">SaaS Management Tool</h3>
+                    <p class="text-navy-600 mt-2">Aplikasi SaaS untuk manajemen tim dengan fitur kolaborasi, tracking, dan reporting.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ABOUT / STORY SECTIONS -->
+    <!-- GANTI FOTO: Ganti src pada setiap img di section ini -->
+    <!-- ============================================ -->
+
+    <!-- Story 1 -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <!-- [GANTI FOTO ABOUT 1] -->
+                    <div class="relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" 
+                            alt="Working" 
+                            class="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
+                        >
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent rounded-2xl -z-10"></div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-accent/20 rounded-2xl -z-10"></div>
+                    </div>
+                </div>
+                <div class="scroll-reveal">
+                    <p class="text-accent font-semibold text-lg mb-3 tracking-wide uppercase">Tentang Saya</p>
+                    <h2 class="text-4xl md:text-5xl font-black text-navy-900 mb-6 leading-tight">Menciptakan Solusi yang Berarti</h2>
+                    <p class="text-navy-600 text-lg leading-relaxed mb-6">
+                        Saya percaya bahwa setiap proyek adalah kesempatan untuk membuat perbedaan. Dengan pendekatan yang berorientasi pada detail dan passion untuk inovasi, saya selalu berusaha memberikan hasil terbaik.
+                    </p>
+                    <p class="text-navy-600 text-lg leading-relaxed mb-8">
+                        Pengalaman saya mencakup berbagai industri dan teknologi, memungkinkan saya untuk melihat masalah dari sudut pandang yang unik dan menemukan solusi kreatif yang efektif.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <span class="px-5 py-2 bg-navy-100 text-navy-800 rounded-full font-medium">Kreatif</span>
+                        <span class="px-5 py-2 bg-navy-100 text-navy-800 rounded-full font-medium">Detail-Oriented</span>
+                        <span class="px-5 py-2 bg-navy-100 text-navy-800 rounded-full font-medium">Problem Solver</span>
+                        <span class="px-5 py-2 bg-navy-100 text-navy-800 rounded-full font-medium">Team Player</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story 2 -->
+    <section class="py-24 bg-navy-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 scroll-reveal">
+                    <p class="text-accent font-semibold text-lg mb-3 tracking-wide uppercase">Filosofi Kerja</p>
+                    <h2 class="text-4xl md:text-5xl font-black text-navy-900 mb-6 leading-tight">Kualitas di Atas Kuantitas</h2>
+                    <p class="text-navy-600 text-lg leading-relaxed mb-6">
+                        Setiap detail penting. Saya tidak hanya membangun produk, saya membangun pengalaman. Dari konsep hingga implementasi, saya memastikan setiap aspek telah melalui pertimbangan matang.
+                    </p>
+                    <p class="text-navy-600 text-lg leading-relaxed mb-8">
+                        Kolaborasi adalah kunci keberhasilan. Saya senang bekerja sama dengan klien dan tim untuk mencapai visi bersama dan melampaui ekspektasi.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-navy-700 font-medium">Komunikasi transparan dan terbuka</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-navy-700 font-medium">Pengiriman tepat waktu dan berkualitas</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="w-6 h-6 bg-accent rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span class="text-navy-700 font-medium">Pembelajaran berkelanjutan dan adaptasi</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 scroll-reveal">
+                    <!-- [GANTI FOTO ABOUT 2] -->
+                    <div class="relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=600&fit=crop" 
+                            alt="Collaboration" 
+                            class="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
+                        >
+                        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-accent rounded-2xl -z-10"></div>
+                        <div class="absolute -top-6 -right-6 w-24 h-24 bg-accent/20 rounded-2xl -z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story 3 -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="scroll-reveal">
+                    <!-- [GANTI FOTO ABOUT 3] -->
+                    <div class="relative">
+                        <img 
+                            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop" 
+                            alt="Learning" 
+                            class="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
+                        >
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent rounded-2xl -z-10"></div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-accent/20 rounded-2xl -z-10"></div>
+                    </div>
+                </div>
+                <div class="scroll-reveal">
+                    <p class="text-accent font-semibold text-lg mb-3 tracking-wide uppercase">Visi Masa Depan</p>
+                    <h2 class="text-4xl md:text-5xl font-black text-navy-900 mb-6 leading-tight">Terus Berkembang dan Berinovasi</h2>
+                    <p class="text-navy-600 text-lg leading-relaxed mb-6">
+                        Dunia teknologi berkembang pesat, dan saya berkomitmen untuk terus belajar dan beradaptasi. Setiap proyek baru adalah kesempatan untuk mengeksplorasi teknologi baru dan metode yang lebih baik.
+                    </p>
+                    <p class="text-navy-600 text-lg leading-relaxed mb-8">
+                        Saya percaya bahwa masa depan milik mereka yang siap berubah. Dengan semangat pembelajaran yang tinggi, saya siap menghadapi tantangan apa pun yang datang.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center gap-3 text-accent font-semibold text-lg group">
+                        Mari Berkolaborasi
+                        <svg class="w-5 h-5 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACT / CTA SECTION -->
+    <!-- ============================================ -->
+    <section id="contact" class="py-24 bg-navy-900 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 lg:px-12 text-center relative z-10 scroll-reveal">
+            <p class="text-accent-light font-semibold text-lg mb-4 tracking-wide uppercase">Hubungi Saya</p>
+            <h2 class="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">Mari Wujudkan Ide Anda Bersama</h2>
+            <p class="text-navy-300 text-xl mb-12 max-w-2xl mx-auto">
+                Punya proyek menarik atau ingin berdiskusi? Saya selalu terbuka untuk peluang kolaborasi baru.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:email@example.com" class="inline-flex items-center justify-center gap-3 bg-accent hover:bg-accent-light text-white font-semibold px-10 py-5 rounded-full transition-all duration-300 hover:scale-105">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    Kirim Email
+                </a>
+                <a href="#" class="inline-flex items-center justify-center gap-3 bg-transparent border-2 border-navy-600 hover:border-white text-navy-300 hover:text-white font-semibold px-10 py-5 rounded-full transition-all duration-300">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="bg-navy-950 py-12 border-t border-navy-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-black text-white mb-2">Jemal and Portfolio</h3>
+                    <p class="text-navy-400">Menciptakan solusi yang berarti dan berdampak positif.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="text-navy-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#" class="text-navy-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" class="text-navy-400 hover:text-white transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-navy-800 text-center">
+                <p class="text-navy-500 text-sm">&copy; 2026 Jemal and Portfolio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================ -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================================ -->
+    <script>
+        // Scroll Reveal Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
